@@ -2,7 +2,7 @@
 
 # CREDITS: Based on http://www.peterstratton.com/2014/04/how-to-install-postgis-2-dot-1-and-postgresql-9-dot-3-on-ubuntu-servers/
 
-FROM ubuntu:14.04
+FROM phusion/baseimage
 
 MAINTAINER Jonathan Mayer jonathan.mayer@ecountability.co.uk
 
