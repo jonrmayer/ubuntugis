@@ -10,15 +10,27 @@ MAINTAINER Jonathan Mayer jonathan.mayer@ecountability.co.uk
 RUN apt-get update && apt-get upgrade -y
 
 # Install dependencies - Step 1  ------------------------------------------------------------------------------------------------#
-RUN apt-get install -y software-properties-common flex bison libfcgi-dev libxml2 libxml2-dev libxslt1-dev \
-curl openssl autoconf apache2 python-software-properties subversion \
-libmozjs185-dev python-dev build-essential
+#RUN apt-get install -y software-properties-common flex bison libfcgi-dev libxml2 libxml2-dev libxslt1-dev \
+#curl openssl autoconf apache2 python-software-properties subversion \
+#libmozjs185-dev python-dev build-essential
+
+RUN apt-get install flex bison libfcgi-dev \
+libxml2 libxml2-dev curl openssl autoconf apache2 \
+python-software-properties subversion git libmozjs185-dev \
+python-dev build-essential libfreetype6-dev  \
+libcairo2-dev apache2-dev libxslt1-dev python-cheetah cssmin \
+python-psycopg2  python-libxslt1  cmake  libapache2-mod-fcgid ghostscript xvfb -y
+
 
 # Add UbuntuGIS repository and update - Step 2  ----------------------------------------------------------------------------------------#
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update
 
+
+
 # Install GDAL - Step 3  ----------------------------------------------------------------------------------------#
-RUN apt-get install libgdal1-dev -y
+
+RUN apt-get install libproj-dev libgdal1-dev gdal-bin python-gdal -y
+
 
 
